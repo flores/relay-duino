@@ -16,15 +16,13 @@ void setup()
   }
 }
 
-
-
-
 void loop()   
 {
   int pin;
   int trigger;
 
   // check each relay trigger
+  // a trigger that is on starts the pin opposite
   for (trigger = 8; trigger < 13; trigger++) {
     pin = trigger - 6;
     if ( digitalRead(trigger) == 1 ) {

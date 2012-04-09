@@ -28,18 +28,22 @@ int main(int argc, char *argv[])
 
   newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
   
-  strcpy(status, "status: \n");
+  strcpy(status, "pin: expected_status actual_status\n");
   for (trigger = 8; trigger < 13; trigger++) {
     pin = trigger - 6;
     if ( digitalRead(trigger) == 1 ) {
       strcpy(current, pin);
       strcat(current, ": ");
-      strcat(current, "on\n");
+      strcat(current, "on ");
+      strcat(current, digitalRead(pin));
+      strcat(current, "\n");
       strcat(status, current);
     } else {
       strcpy(current, pin);
       strcat(current, ": ");
-      strcat(current, "off\n");
+      strcat(current, "off");
+      strcat(current, digitalRead(pin));
+      strcat(current, "\n");
       strcat(status, current);
     }
   }

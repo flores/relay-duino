@@ -33,15 +33,13 @@ int main(int argc, char *argv[])
     pin = trigger - 6;
     if ( digitalRead(trigger) == 1 ) {
       strcpy(current, pin);
-      strcat(current, ": ");
-      strcat(current, "on ");
+      strcat(current, ": on ");
       strcat(current, digitalRead(pin));
       strcat(current, "\n");
       strcat(status, current);
     } else {
       strcpy(current, pin);
-      strcat(current, ": ");
-      strcat(current, "off");
+      strcat(current, ": off ");
       strcat(current, digitalRead(pin));
       strcat(current, "\n");
       strcat(status, current);
